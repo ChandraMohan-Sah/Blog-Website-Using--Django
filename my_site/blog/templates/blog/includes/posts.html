@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+All-Post
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'css/bestcard.css' %}">  
+{% endblock %}
+
+
+{% block content %}
+    <!--header2.html-->
+    {% include "blog/includes/header_allpost.html" %}
+
+    <!--bestcards containing posts-->
+    
+    {% for post in all_posts%}
+        {% include "blog/all-posts.html" %}
+    {% endfor %}
+
+    <!-- Footer -->
+    <section class="w3-margin">
+        {% include "blog/includes/footer.html" %}
+    </section>
+
+{% endblock %}

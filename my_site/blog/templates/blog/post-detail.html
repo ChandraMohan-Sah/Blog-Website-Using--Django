@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_title %}
+    {{post.title}}
+{% endblock %}
+
+
+
+
+{% block content %} 
+
+{% include "blog/includes/header_detail_post.html" %}
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large  ">
+
+    <!-- About Container -->
+    <div class="w3-container" id="about">
+      <div class="w3-content" style="max-width:700px">
+        <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE POST</span></h5>
+        <p>{{ post.content|linebreaks }}</p>
+
+        <div class="w3-panel w3-leftbar w3-light-grey">
+          <p><i>{{ post.note }}</i></p>
+        </div>
+
+        <img src="{% static "blog/images/"|add:post.image %}" style="width:100%;max-width:1000px" class="w3-margin-top">
+        <p><strong>Opening Date : </strong>{{ post.date|date:"d M Y " }}</p>
+        <p><strong>Address:</strong> {{post.address}} </p>
+      </div>
+    </div>
+    
+    <!-- Menu Container -->
+    <div class="w3-container" id="menu">
+      <div class="w3-content" style="max-width:700px">
+     
+        <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
+      
+        <div class="w3-row w3-center w3-card w3-padding">
+          <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+            <div class="w3-col s6 tablink">Eat</div>
+          </a>
+          <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+            <div class="w3-col s6 tablink">Drink</div>
+          </a>
+        </div>
+    
+        <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+          <h5>Bread Basket</h5>
+          <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+        
+          <h5>Honey Almond Granola with Fruits</h5>
+          <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
+        
+          <h5>Belgian Waffle</h5>
+          <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+        
+          <h5>Scrambled eggs</h5>
+          <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+        
+          <h5>Blueberry Pancakes</h5>
+          <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
+        </div>
+    
+        <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+          <h5>Coffee</h5>
+          <p class="w3-text-grey">Regular coffee 2.50</p><br>
+        
+          <h5>Chocolato</h5>
+          <p class="w3-text-grey">Chocolate espresso with milk 4.50</p><br>
+        
+          <h5>Corretto</h5>
+          <p class="w3-text-grey">Whiskey and coffee 5.00</p><br>
+        
+          <h5>Iced tea</h5>
+          <p class="w3-text-grey">Hot tea, except not hot 3.00</p><br>
+        
+          <h5>Soda</h5>
+          <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
+        
+    </div>
+    <br><br><br><br>
+
+
+    <script>
+        // Tabbed Menu
+        function openMenu(evt, menuName) {
+          var i, x, tablinks;
+          x = document.getElementsByClassName("menu");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+          }
+          document.getElementById(menuName).style.display = "block";
+          evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+        }
+        document.getElementById("myLink").click();
+    </script>
+</div>
+
+{% include "blog/includes/footer.html" %}
+{% endblock %}

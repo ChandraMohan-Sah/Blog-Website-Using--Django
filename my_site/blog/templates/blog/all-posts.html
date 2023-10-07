@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+All-Post
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/css/bestcard.css' %}">  
+{% endblock %}
+
+
+{% block content %}
+
+
+<!--Best Cards-->
+
+<div class="w3-container " style="margin-bottom: 20%; ">
+  <br>
+  <div class="content-wrapper">
+  
+
+      <div class="news-card " style="margin:15px; max-width:30%; flex:1">
+        <a href="{% url "post-detail-page" post.slug %}" class="news-card__card-link"></a>
+        <img src="{% static "blog/images/"|add:post.image %}" alt="{{ post.title }}" class="news-card__image">
+        
+        <div class="news-card__text-wrapper ">
+          <h2 class="news-card__title w3-serif">{{ post.title }}</h2>
+          <div class="news-card__post-date">{{ post.date }}</div>
+          <div class="news-card__post-date">{{post.author}}</div>
+          <div class="news-card__details-wrapper">
+            <p class="news-card__excerpt">{{ post.excerpt }}&hellip;</p>
+            <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
+          </div>
+        </div>
+
+  </div>
+
+</div>
+
+
+{% endblock %}

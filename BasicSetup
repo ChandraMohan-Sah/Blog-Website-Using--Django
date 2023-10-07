@@ -1,0 +1,35 @@
+------------------------------------------------Basic_SETUP ----------------------------------
+
+Install python and pip (package installer for python)  for your system first:
+
+
+Download an IDE (VsCode and install Following Extensions:)
+		    | -- python 3.9
+		    | -- pylance 
+		    | -- autopep8 (For auto formatting )
+	
+
+Create Directory Practical:
+		    |Inside Directory-----cmd: python3 -m venv virtualEnvName (create virtual Env)
+		    |			--cmd: source ./venv/bin/activate   (activate virtual env)
+		    | 			--cmd: pip install django
+		    |			--cmd: django-admin startproject projectName(mypage)
+		    |			--cmd: python3 manage.py runserver
+			|
+		    |		GO inside projectfloder
+		    |			|--cmd: python3 manage.py startapp appName(challenger)
+
+----------------------------------------------URLS AND VIEWS --------------------------------------
+
+Initialize Git if Possible
+
+Creating Static URLs :
+
+Creating Dynamic Urls : Approach 1 - Use Simple code logics
+						Approach 2 - Use Reverse function
+
+
+-----------------------------------------------TEMPLATES -----------------------------------------
+
+
+
